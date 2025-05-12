@@ -25,8 +25,8 @@
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
   overflow-y: auto;
+  overflow-x: hidden;
   display: flex;
   flex-direction: column;
 }
@@ -59,3 +59,36 @@
   justify-content: center;
   align-items: center;
 }
+
+.quote {
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.quoteExpanded {
+  display: inline-block;
+  width: 100%;
+  white-space: normal;
+  overflow-x: visible;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: inherit;
+  position: relative;
+  z-index: 10;
+}
+
+.quoteNoPointer {
+  display: inline-block;
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+

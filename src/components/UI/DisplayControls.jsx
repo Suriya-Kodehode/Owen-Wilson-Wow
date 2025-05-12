@@ -1,7 +1,7 @@
 
 import React from 'react';
 import SearchBar from './SearchBar.jsx';
-import SortControls from './SortControls.jsx';
+import SortControls from './sortControls.jsx';
 import styles from "../../CSSModules/displayApi.module.css";
 
 const DisplayControls = ({
