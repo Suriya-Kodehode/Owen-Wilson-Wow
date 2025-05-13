@@ -5,7 +5,7 @@
 
 .utilContainer {
   margin-bottom: 1rem;
-  padding: 1rem;
+  padding: 0 1rem 1rem 1rem;
   background-color: var(--dark);
   border-radius: 4px;
   text-align: center;

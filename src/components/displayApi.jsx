@@ -32,7 +32,6 @@ const DisplayApi = ({ endpoint, data }) => {
       return (
         <div className={styles.apiContainer}>
           <div className={styles.utilContainer}>
-            <h2>Endpoint: {endpoint}</h2>
             <DisplayControls
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}

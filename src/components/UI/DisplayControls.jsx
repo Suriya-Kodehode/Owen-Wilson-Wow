@@ -12,8 +12,10 @@ const DisplayControls = ({
   setSortOrder,
   hideSort = false,
 }) => {
+  const titleStyle = { marginTop: 0, marginBottom: "0.8rem", fontSize: "2rem" };
   return (
     <div className={styles.utilContainer}>
+      <h2 style={{ ...titleStyle }}>Owen Wilson says Wow</h2>
       <SearchBar query={searchQuery} onQueryChange={setSearchQuery} />
       {!hideSort && (
         <SortControls
