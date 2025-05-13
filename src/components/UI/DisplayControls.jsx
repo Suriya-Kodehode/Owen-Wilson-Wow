@@ -1,4 +1,3 @@
-
 import React from 'react';
 import SearchBar from './SearchBar.jsx';
 import SortControls from './sortControls.jsx';
@@ -11,16 +10,19 @@ const DisplayControls = ({
   sortOrder,
   setSortField,
   setSortOrder,
+  hideSort = false,
 }) => {
   return (
     <div className={styles.utilContainer}>
       <SearchBar query={searchQuery} onQueryChange={setSearchQuery} />
-      <SortControls
-        sortField={sortField}
-        sortOrder={sortOrder}
-        setSortField={setSortField}
-        setSortOrder={setSortOrder}
-      />
+      {!hideSort && (
+        <SortControls
+          sortField={sortField}
+          sortOrder={sortOrder}
+          setSortField={setSortField}
+          setSortOrder={setSortOrder}
+        />
+      )}
     </div>
   );
 };

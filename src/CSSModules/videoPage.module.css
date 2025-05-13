@@ -1,0 +1,47 @@
+
+.container {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.resolutionSelector {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+}
+
+.label {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.select {
+  font-size: 1rem;
+  padding: 4px 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.video {
+  width: 100%;
+  max-width: 1080px;
+  background-color: #000;
+  border: none;
+  outline: none;
+}
+
+.errorText {
+  color: red;
+  font-size: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.noMovie {
+  padding: 1rem;
+  text-align: center;
+  font-style: italic;
+}

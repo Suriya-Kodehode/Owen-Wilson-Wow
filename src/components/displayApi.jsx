@@ -1,11 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { filterApiData } from '../components/util/searchUtil.jsx';
 import { sortData } from '../components/util/sortUtil.jsx';
 import DisplayControls from './UI/DisplayControls.jsx';
 import MovieCard from './UI/MovieCard.jsx';
 import styles from "../CSSModules/displayApi.module.css";
 
-import { useClickOutsideSelector } from './hooks/useGeneral.jsx';
+import { useClickOutsideSelector, useDefaultSortOrder } from './hooks/useGeneral.jsx';
 import { useMoviesDetails } from './hooks/useMoviesDetails.jsx';
 
 const DisplayApi = ({ endpoint, data }) => {
@@ -15,11 +15,7 @@ const DisplayApi = ({ endpoint, data }) => {
   const [sortField, setSortField] = useState("movie");
   const [sortOrder, setSortOrder] = useState("asc");
 
-  useEffect(() => {
-    if (sortField === "year" && sortOrder !== "desc") {
-      setSortOrder("desc");
-    }
-  }, [sortField, sortOrder]);
+  useDefaultSortOrder(sortField, sortOrder, setSortOrder);
 
   useClickOutsideSelector(`.${styles.apiCard}`, () => setSelectedCardIndex(null));
 
@@ -44,6 +40,7 @@ const DisplayApi = ({ endpoint, data }) => {
               sortOrder={sortOrder}
               setSortField={setSortField}
               setSortOrder={setSortOrder}
+              hideSort={false}
             />
           </div>
           <p>Loading movie details...</p>
@@ -53,7 +50,7 @@ const DisplayApi = ({ endpoint, data }) => {
     displayData = filterApiData(moviesDetails, searchQuery);
   }
 
-  if (Array.isArray(displayData)) {
+  if (Array.isArray(displayData) && endpoint !== "random") {
     displayData = sortData(displayData, sortField, sortOrder);
   }
 
@@ -62,10 +59,14 @@ const DisplayApi = ({ endpoint, data }) => {
       <DisplayControls
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        sortField={sortField}
-        sortOrder={sortOrder}
-        setSortField={setSortField}
-        setSortOrder={setSortOrder}
+        {...(endpoint !== "random" ? {
+            sortField: sortField,
+            sortOrder: sortOrder,
+            setSortField: setSortField,
+            setSortOrder: setSortOrder,
+          } : {}
+        )}
+        hideSort={endpoint === "random"}
       />
       <div className={styles.cardsContainer}>
         {Array.isArray(displayData) ? (
@@ -78,6 +79,7 @@ const DisplayApi = ({ endpoint, data }) => {
                 isSelected={selectedCardIndex === index}
                 onClick={(e) => {
                   e.stopPropagation();
+                  // console.log("Movie Info:", item);
                   setSelectedCardIndex(selectedCardIndex === index ? null : index);
                 }}
               />
@@ -92,6 +94,7 @@ const DisplayApi = ({ endpoint, data }) => {
             isSelected={selectedCardIndex === 0}
             onClick={(e) => {
               e.stopPropagation();
+              // console.log("Movie Info:", displayData);
               setSelectedCardIndex(selectedCardIndex === 0 ? null : 0);
             }}
           />
