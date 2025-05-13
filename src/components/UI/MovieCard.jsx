@@ -7,7 +7,7 @@ const MovieCard = ({ item, index, isSelected, onClick }) => {
   const { ref: quoteRef, isTruncated, isExpanded, toggleExpand } = useTruncatedText(item.full_line);
   const navigate = useNavigate();
 
-  const cardClass = `${styles.apiCard} ${isSelected ? styles.selectedCard : ""}`;
+  const cardClass = `${styles.movieCard} ${isSelected ? styles.selectedCard : ""}`;
   const quoteClassName = isExpanded
     ? styles.quoteExpanded
     : isTruncated
@@ -20,20 +20,20 @@ const MovieCard = ({ item, index, isSelected, onClick }) => {
   };
 
   return (
-    <div key={index} className={cardClass} onClick={onClick}>
-      <h3>{item.movie}</h3>
-      <p>
-        <strong>Year:</strong> {item.year}
-      </p>
-      <p>
+    <div className={cardClass} onClick={onClick}>
+      <div className={styles.cardHeader}>
+        <h3 className={styles.movieTitle}>{item.movie}</h3>
+        <p className={styles.movieYear}><strong>Year:</strong> {item.year}</p>
+      </div>
+      <p className={styles.movieDirector}>
         <strong>Director:</strong> {item.director}
       </p>
-      <p>
+      <div className={styles.quoteContainer}>
         <strong>Quote:</strong>{" "}
         <span ref={quoteRef} className={quoteClassName} onClick={toggleExpand}>
           {item.full_line}
         </span>
-      </p>
+      </div>
       {item.poster && (
         <img
           src={item.poster}
