@@ -66,3 +66,31 @@ export const useTruncatedText = (text) => {
 
   return { ref, isTruncated, isExpanded, toggleExpand };
 };
+
+/* 
+  useVideoResolution:
+  Filters available video sources from movie data based on provided resolution options,
+  manages the current resolution state, and returns the sources, current quality,
+  the corresponding source, and a handler to change resolution.
+*/
+export const useVideoResolution = (movie, resolutionOptions, defaultQuality) => {
+  const videoSources = resolutionOptions
+    .filter((res) => movie.video && movie.video[res])
+    .map((res) => ({
+      src: movie.video[res],
+      quality: res,
+    }));
+
+  const [currentQuality, setCurrentQuality] = useState(defaultQuality);
+  const currentSource = videoSources.find(
+    (source) => source.quality === currentQuality
+  );
+
+  const handleResolutionChange = (quality) => {
+    if (quality !== currentQuality) {
+      setCurrentQuality(quality);
+    }
+  };
+
+  return { videoSources, currentQuality, currentSource, handleResolutionChange };
+};

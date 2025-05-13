@@ -1,28 +1,34 @@
 
 .container {
-  padding: 1rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1rem;
 }
 
-.resolutionSelector {
+.resolutionOptions {
   margin-bottom: 1rem;
   display: flex;
-  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
-.label {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-right: 8px;
-}
-
-.select {
-  font-size: 1rem;
-  padding: 4px 8px;
-  border: 1px solid #ccc;
+.resolutionButton {
+  border: none;
   border-radius: 4px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.resolutionButton:hover {
+  transform: scale(1.02);
+}
+
+.active {
+  background-color: #007acc;
+  color: #fff;
 }
 
 .video {
@@ -33,15 +39,9 @@
   outline: none;
 }
 
-.errorText {
-  color: red;
-  font-size: 1rem;
-  margin-top: 1rem;
-  text-align: center;
-}
-
 .noMovie {
   padding: 1rem;
   text-align: center;
-  font-style: italic;
+  font-size: 1.2rem;
+  color: #333;
 }

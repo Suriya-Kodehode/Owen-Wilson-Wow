@@ -1,6 +1,7 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useLocation } from 'react-router-dom';
 import styles from '../CSSModules/videoPage.module.css';
+import { useVideoResolution } from '../components/hooks/useGeneral';
 
 const VideoPage = () => {
   const location = useLocation();
@@ -14,41 +15,48 @@ const VideoPage = () => {
     );
   }
 
-  const [selectedResolution, setSelectedResolution] = useState("720p");
   const resolutionOptions = ["1080p", "720p", "480p", "360p"];
+  const defaultQuality = "720p";
 
-  const videoUrl = movie.video ? movie.video[selectedResolution] : null;
+  const {
+    videoSources,
+    currentQuality,
+    currentSource,
+    handleResolutionChange,
+  } = useVideoResolution(movie, resolutionOptions, defaultQuality);
+
+  const videoRef = useRef(null);
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.load();
+    }
+  }, [currentQuality]);
 
   return (
     <div className={styles.container}>
-      <div className={styles.resolutionSelector}>
-        <label htmlFor="resolutionSelect" className={styles.label}>
-          Select Resolution:
-        </label>
-        <select
-          id="resolutionSelect"
-          className={styles.select}
-          value={selectedResolution}
-          onChange={(e) => setSelectedResolution(e.target.value)}
-        >
-          {resolutionOptions.map((res) => (
-            <option key={res} value={res}>
-              {res}
-            </option>
-          ))}
-        </select>
+      <div className={styles.resolutionOptions}>
+        {videoSources.map((source) => (
+          <button
+            key={source.quality}
+            className={`${styles.resolutionButton} ${
+              source.quality === currentQuality ? styles.active : ""
+            }`}
+            onClick={() => handleResolutionChange(source.quality)}
+          >
+            {source.quality}
+          </button>
+        ))}
       </div>
-
-      {videoUrl ? (
-        <video controls className={styles.video}>
-          <source src={videoUrl} type="video/mp4" />
-          Your browser does not support the video tag.
-        </video>
-      ) : (
-        <p className={styles.errorText}>
-          Video unavailable at the selected resolution.
-        </p>
-      )}
+      <video
+        key={currentQuality}
+        ref={videoRef}
+        src={currentSource ? currentSource.src : ""}
+        className={styles.video}
+        controls
+        preload="auto"
+        width="100%"
+      />
     </div>
   );
 };

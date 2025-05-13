@@ -3,11 +3,20 @@ import HomePage from "../pages/startPage.jsx";
 import VideoPage from "../pages/videoPage.jsx";
 import App from "../App.jsx";
 
+const ErrorElement = () => {
+  return (
+    <div style={{ padding: "1rem", textAlign: "center" }}>
+      <h1>Error occurred</h1>
+      <p>Something went wrong. Please try reloading the page.</p>
+    </div>
+  );
+};
+
 const router = createHashRouter([
   {
     path: "/",
     element: <App />,
-    errorElement: <p>Error occurred</p>,
+    errorElement: <ErrorElement />,
     children: [
       {
         index: true,
@@ -25,7 +34,7 @@ const router = createHashRouter([
   },
   {
     path: "*",
-    element: <p>Page not found</p>,
+    element: <ErrorElement />,
   },
 ]);
 
