@@ -149,11 +149,11 @@
     display: block;
     margin-bottom: 0.3rem;
     text-align: center;
-    width: 150px; /* Adjusted fixed width */
+    width: 150px;
   }
 
   .sortContainer select {
-    width: 150px; /* Adjusted fixed width to match the labels */
+    width: 150px;
     box-sizing: border-box;
     text-align: center;
     text-align-last: center;
