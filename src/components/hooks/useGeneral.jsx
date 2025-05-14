@@ -21,7 +21,8 @@ export const useClickOutsideSelector = (selector, callback) => {
 /* 
   useDefaultSortOrder:
   Sets a default sort order based on the sortField.
-  For "year", the default is "desc". For any other field, the default is "asc".
+  For "year", the default is "desc".
+  For any other field, the default is "asc".
   Note: The user can manually override this after the default is applied.
 */
 export const useDefaultSortOrder = (sortField, setSortOrder) => {
@@ -38,7 +39,7 @@ export const useDefaultSortOrder = (sortField, setSortOrder) => {
   useTruncatedText:
   Determines if an element's text content overflows its container (i.e. is truncated).
   Provides a toggleExpand function to switch between expanded and truncated view.
-  When the text is clicked when already expanded, it toggles back to the truncated state.
+  When the quote is clicked when already expanded, it toggles back to the truncated state.
 */
 export const useTruncatedText = (text) => {
   const [isTruncated, setIsTruncated] = useState(false);
@@ -48,7 +49,7 @@ export const useTruncatedText = (text) => {
   const toggleExpand = (e) => {
     e.stopPropagation();
     if (isTruncated) {
-      setIsExpanded(prev => !prev);
+      setIsExpanded((prev) => !prev);
     }
   };
 

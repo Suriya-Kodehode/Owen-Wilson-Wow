@@ -1,4 +1,3 @@
-
 import React from 'react';
 import styles from "../../CSSModules/displayApi.module.css"; 
 
@@ -11,6 +10,7 @@ const SortControls = ({ sortField, sortOrder, setSortField, setSortOrder }) => {
           <option value="movie">Movie Name</option>
           <option value="year">Year</option>
           <option value="director">Director</option>
+          <option value="total_wows_in_movie">Total Wow</option>
         </select>
       </label>
       <label>

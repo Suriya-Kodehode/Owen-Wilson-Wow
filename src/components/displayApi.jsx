@@ -15,8 +15,10 @@ const DisplayApi = ({ endpoint, data }) => {
   const [sortField, setSortField] = useState("movie");
   const [sortOrder, setSortOrder] = useState("asc");
 
+  // Apply a default sort order when the sortField changes.
   useDefaultSortOrder(sortField, setSortOrder);
 
+  // Use the updated movieCard class name
   useClickOutsideSelector(`.${styles.movieCard}`, () => setSelectedCardIndex(null));
 
   if (!data) return <p>No data available.</p>;
@@ -27,6 +29,7 @@ const DisplayApi = ({ endpoint, data }) => {
 
   const moviesDetails = useMoviesDetails(endpoint, data);
   let displayData = filteredData;
+
   if (endpoint === "movies") {
     if (moviesDetails.length === 0) {
       return (
@@ -59,10 +62,10 @@ const DisplayApi = ({ endpoint, data }) => {
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         {...(endpoint !== "random" ? {
-            sortField: sortField,
-            sortOrder: sortOrder,
-            setSortField: setSortField,
-            setSortOrder: setSortOrder,
+            sortField,
+            sortOrder,
+            setSortField,
+            setSortOrder,
           } : {}
         )}
         hideSort={endpoint === "random"}
