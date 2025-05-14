@@ -5,8 +5,7 @@
     display: grid;
     grid-template-columns: 1fr 3.5fr 1fr;
     grid-template-areas: 
-    "left center right"
-    ;
+        "left center right";
 }
 
 .asideLeft {
@@ -17,4 +16,18 @@
 }
 .asideRight {
     grid-area: right;
+}
+
+/* Mobile view adjustments */
+@media (max-width: 600px) {
+    .asideLeft,
+    .asideRight {
+        display: none !important;
+    }
+    
+    .generalContainer {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "center";
+    }
 }
