@@ -15,9 +15,9 @@ const DisplayApi = ({ endpoint, data }) => {
   const [sortField, setSortField] = useState("movie");
   const [sortOrder, setSortOrder] = useState("asc");
 
-  useDefaultSortOrder(sortField, sortOrder, setSortOrder);
+  useDefaultSortOrder(sortField, setSortOrder);
 
-  useClickOutsideSelector(`.${styles.apiCard}`, () => setSelectedCardIndex(null));
+  useClickOutsideSelector(`.${styles.movieCard}`, () => setSelectedCardIndex(null));
 
   if (!data) return <p>No data available.</p>;
 
@@ -78,7 +78,6 @@ const DisplayApi = ({ endpoint, data }) => {
                 isSelected={selectedCardIndex === index}
                 onClick={(e) => {
                   e.stopPropagation();
-                  // console.log("Movie Info:", item);
                   setSelectedCardIndex(selectedCardIndex === index ? null : index);
                 }}
               />
@@ -93,7 +92,6 @@ const DisplayApi = ({ endpoint, data }) => {
             isSelected={selectedCardIndex === 0}
             onClick={(e) => {
               e.stopPropagation();
-              // console.log("Movie Info:", displayData);
               setSelectedCardIndex(selectedCardIndex === 0 ? null : 0);
             }}
           />

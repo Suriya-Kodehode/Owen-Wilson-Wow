@@ -20,25 +20,25 @@ export const useClickOutsideSelector = (selector, callback) => {
 
 /* 
   useDefaultSortOrder:
-  When sorting by "year", the default order is set to "desc" (Descending).
-  When sorting by "movie" (Movie Name) or "director", the default order is set to "asc" (Ascending).
-  Runs whenever sortField, sortOrder, or setSortOrder changes.
+  Sets a default sort order based on the sortField.
+  For "year", the default is "desc". For any other field, the default is "asc".
+  Note: The user can manually override this after the default is applied.
 */
-export const useDefaultSortOrder = (sortField, sortOrder, setSortOrder) => {
+export const useDefaultSortOrder = (sortField, setSortOrder) => {
   useEffect(() => {
-    if (sortField === "year" && sortOrder !== "desc") {
+    if (sortField === "year") {
       setSortOrder("desc");
-    } else if ((sortField === "movie" || sortField === "director") && sortOrder !== "asc") {
+    } else {
       setSortOrder("asc");
     }
-  }, [sortField, sortOrder, setSortOrder]);
+  }, [sortField, setSortOrder]);
 };
 
 /* 
   useTruncatedText:
   Determines if an element's text content overflows its container (i.e. is truncated).
   Provides a toggleExpand function to switch between expanded and truncated view.
-  When the quote is clicked when already expanded, it toggles back to the truncated state.
+  When the text is clicked when already expanded, it toggles back to the truncated state.
 */
 export const useTruncatedText = (text) => {
   const [isTruncated, setIsTruncated] = useState(false);
@@ -71,7 +71,7 @@ export const useTruncatedText = (text) => {
   useVideoResolution:
   Filters available video sources from movie data based on provided resolution options,
   manages the current resolution state, and returns the sources, current quality,
-  the corresponding source, and a handler to change resolution.
+  the corresponding source, and a handler to change the resolution.
 */
 export const useVideoResolution = (movie, resolutionOptions, defaultQuality) => {
   const videoSources = resolutionOptions
