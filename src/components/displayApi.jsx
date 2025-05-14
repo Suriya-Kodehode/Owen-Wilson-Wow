@@ -79,7 +79,7 @@ const DisplayApi = ({ endpoint, data }) => {
                 isSelected={selectedCardIndex === index}
                 onClick={(e) => {
                   e.stopPropagation();
-                  console.log("Selected movie info:", item);
+                  // console.log("Selected movie info:", item);
                   setSelectedCardIndex(selectedCardIndex === index ? null : index);
                 }}
               />
@@ -94,7 +94,7 @@ const DisplayApi = ({ endpoint, data }) => {
             isSelected={selectedCardIndex === 0}
             onClick={(e) => {
               e.stopPropagation();
-              console.log("Selected movie info:", displayData);
+              // console.log("Selected movie info:", displayData);
               setSelectedCardIndex(selectedCardIndex === 0 ? null : 0);
             }}
           />
