@@ -54,21 +54,22 @@ const DisplayApi = ({ endpoint, data }) => {
     displayData = sortData(displayData, sortField, sortOrder);
   }
 
+  const containerClass = endpoint === "random" ? styles.cardContainer : styles.cardsContainer;
+
   return (
     <div className={styles.apiContainer}>
       <DisplayControls
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         {...(endpoint !== "random" ? {
-            sortField,
-            sortOrder,
-            setSortField,
-            setSortOrder,
-          } : {}
-        )}
+          sortField,
+          sortOrder,
+          setSortField,
+          setSortOrder,
+        } : {})}
         hideSort={endpoint === "random"}
       />
-      <div className={styles.cardsContainer}>
+      <div className={containerClass}>
         {Array.isArray(displayData) ? (
           displayData.length > 0 ? (
             displayData.map((item, index) => (
