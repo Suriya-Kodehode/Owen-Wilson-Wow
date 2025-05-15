@@ -1,4 +1,14 @@
 :root {
-    --dark: #242424;
-    --whiteText: #FFFFFFDE;
+    /* Global theme */
+    --main-bg: linear-gradient(298deg, #414141 0%, #454343 40%, #242424 100%);
+    --main-text: #FFFFFFDE;
+    --head-foot-bg: #ffffff0a;
+
+    /* Others */
+    --default-border: 2px solid #65f82bcc;
+    
+    /* Header button style */
+    --bg-button: #16669b;
+    --bg-button-hover: #1c7dbe;
+    --button-focus-outline: 3px solid #25a8ff;
 }

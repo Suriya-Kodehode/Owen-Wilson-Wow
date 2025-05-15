@@ -6,24 +6,30 @@
 .utilContainer {
   margin-bottom: 1rem;
   padding: 0 1rem 1rem 1rem;
-  background-color: var(--dark);
+  background-color: inherit;
   border-radius: 4px;
   text-align: center;
 }
 
+/* Default container for multiple movie cards */
 .cardsContainer {
-  /* Default container for multiple movie cards */
+  
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center; 
 }
+/* Default container for a single movie card */
+.cardContainer {
+  display: flex;
+  justify-content: center;
+}
 
 /* Movie Card */
 .movieCard {
   width: 300px;
-  background-color: var(--dark);
-  border: 1px solid #ddd;
+  background-color: inherit;
+  border: var(--default-border);
   border-radius: 8px;
   padding: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);

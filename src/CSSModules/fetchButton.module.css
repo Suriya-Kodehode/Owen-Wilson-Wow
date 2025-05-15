@@ -1,6 +1,6 @@
 .fetchButton {
   padding: 8px 16px;
-  background-color: #555;
+  background-color: var(--bg-button);
   border: none;
   font-size: 1rem;
   border-radius: 4px;
@@ -10,5 +10,10 @@
 }
 
 .fetchButton:hover {
-  background-color: #777;
+  background-color: var(--bg-button-hover);
+}
+
+.fetchButton:focus,
+.fetchButton:focus-visible {
+  outline: var(--button-focus-outline);
 }

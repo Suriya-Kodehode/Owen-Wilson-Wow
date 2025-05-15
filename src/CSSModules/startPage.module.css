@@ -3,7 +3,7 @@
     height: 100%;
 
     display: grid;
-    grid-template-columns: 1fr 3.5fr 1fr;
+    grid-template-columns: auto 3.5fr auto;
     grid-template-areas: 
         "left center right";
 }
