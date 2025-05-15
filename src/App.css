@@ -22,7 +22,6 @@
 header {
   grid-area: header;
   background-color: #333;
-  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,7 +35,6 @@ main {
 footer {
   grid-area: footer;
   background-color: #333;
-  color: #fff;
   display: flex;
   justify-content: center;
   align-items: center;
