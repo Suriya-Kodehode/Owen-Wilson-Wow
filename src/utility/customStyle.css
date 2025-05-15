@@ -4,11 +4,13 @@
     --main-text: #FFFFFFDE;
     --head-foot-bg: #ffffff0a;
 
-    /* Others */
-    --default-border: 2px solid #65f82bcc;
-    
     /* Header button style */
     --bg-button: #16669b;
     --bg-button-hover: #1c7dbe;
     --button-focus-outline: 3px solid #25a8ff;
+
+    /* Movie card */
+    --card-border: 3px solid #b5ec33da;
+    --bg-card: #74b6281c;
+    --selected-card-border: 3px solid rgb(19, 19, 247);
 }
