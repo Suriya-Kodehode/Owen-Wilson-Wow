@@ -1,4 +1,5 @@
 :root {
+    /* At startPage */
     /* Global theme */
     --main-bg: linear-gradient(298deg, #414141 0%, #454343 40%, #242424 100%);
     --main-text: #FFFFFFDE;
@@ -13,4 +14,10 @@
     --card-border: 3px solid #b5ec33da;
     --bg-card: #74b6281c;
     --selected-card-border: 3px solid rgb(19, 19, 247);
+
+    /* At videoPage */
+    /* Resolution button */
+    --bg-res-active: #007acc;
+    --video-bScreen: #000;
+    --res-button-transitions: background-color 0.2s ease, transform 0.2s ease;
 }

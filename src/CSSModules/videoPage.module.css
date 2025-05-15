@@ -18,7 +18,7 @@
   border-radius: 4px;
   padding: 8px 16px;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: var(--res-button-transitions);
 }
 
 .resolutionButton:hover {
@@ -26,13 +26,13 @@
 }
 
 .active {
-  background-color: #007acc;
+  background-color: var(--bg-res-active);
 }
 
 .video {
   width: 100%;
   max-width: 1080px;
-  background-color: #000;
+  background-color: var(--video-bScreen);
   border: none;
   outline: none;
 }
