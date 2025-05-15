@@ -51,20 +51,17 @@
 .movieTitle {
   margin: 0;
   font-size: 1.25rem;
-  color: #fff;
 }
 
 .movieYear {
   margin: 0;
   font-size: 0.9rem;
-  color: #ccc;
 }
 
 /* Director Info */
 .movieDirector {
   font-size: 1rem;
   margin: 3px 0;
-  color: #ddd;
 }
 
 /* Total Wow Info */
